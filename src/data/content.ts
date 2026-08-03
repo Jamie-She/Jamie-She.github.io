@@ -1,6 +1,6 @@
 import citySunglasses from '../assets/practice/city-sunglasses-v26.jpg'
 import wechatQr from '../assets/contact/wechat-qr.png'
-import xiaohongshuQr from '../assets/contact/xiaohongshu-qr.png'
+import rednoteQr from '../assets/contact/rednote-qr.png'
 import bendShift from '../assets/practice/bend-shift.jpg'
 import fakeAd from '../assets/practice/fake-ad.jpg'
 import lingguangMaomao from '../assets/practice/lingguang-maomao.jpg'
@@ -102,7 +102,7 @@ export const profile = {
   email: '852433522@qq.com',
   links: [
     { label: 'GitHub', href: 'https://github.com/Jamie-She' },
-    { label: '小红书', href: '#contact' },
+    { label: 'REDNOTE', href: '#contact' },
   ],
   contact: {
     email: '852433522@qq.com',
@@ -111,9 +111,9 @@ export const profile = {
     wechatLabel: 'Jamie.She ✨',
     wechatMeta: 'WECHAT CONTACT',
     wechatQr,
-    xiaohongshuLabel: 'JAMIE X STUDIO',
-    xiaohongshuMeta: 'rednote ID 42978977777',
-    xiaohongshuQr,
+    rednoteLabel: 'JAMIE X STUDIO',
+    rednoteMeta: 'rednote ID 42978977777',
+    rednoteQr,
   },
 }
 

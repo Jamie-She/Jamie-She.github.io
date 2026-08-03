@@ -8,7 +8,7 @@ type QrCardProps = {
   src: string
   account: string
   meta: string
-  variant: 'wechat' | 'xiaohongshu'
+  variant: 'wechat' | 'rednote'
 }
 
 function QrCard({ index, label, title, src, account, meta, variant }: QrCardProps) {
@@ -121,12 +121,12 @@ export function Contact() {
         />
         <QrCard
           index="04"
-          label="XIAOHONGSHU"
-          title="小红书"
-          src={contact.xiaohongshuQr}
-          account={contact.xiaohongshuLabel}
-          meta={contact.xiaohongshuMeta}
-          variant="xiaohongshu"
+          label="REDNOTE"
+          title="REDNOTE"
+          src={contact.rednoteQr}
+          account={contact.rednoteLabel}
+          meta={contact.rednoteMeta}
+          variant="rednote"
         />
       </div>
 
