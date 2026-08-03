@@ -1,4 +1,6 @@
 import citySunglasses from '../assets/practice/city-sunglasses-v26.jpg'
+import wechatQr from '../assets/contact/wechat-qr.png'
+import xiaohongshuQr from '../assets/contact/xiaohongshu-qr.png'
 import bendShift from '../assets/practice/bend-shift.jpg'
 import fakeAd from '../assets/practice/fake-ad.jpg'
 import lingguangMaomao from '../assets/practice/lingguang-maomao.jpg'
@@ -97,17 +99,21 @@ export const profile = {
   statement: '讨论想法，也关注如何推进到真实结果',
   statementLines: ['讨论想法，也关注如何', '推进到真实结果'],
   about: 'AI策略 · 内容生态 · 长程任务交付',
-  email: 'yourname@example.com',
+  email: '852433522@qq.com',
   links: [
-    { label: 'GitHub', href: 'https://github.com/yourname' },
-    { label: '即刻 / 小红书', href: '#' },
+    { label: 'GitHub', href: 'https://github.com/Jamie-She' },
+    { label: '小红书', href: '#contact' },
   ],
   contact: {
-    email: 'yourname@example.com',
-    githubLabel: 'github.com/yourname',
-    githubUrl: 'https://github.com/yourname',
-    wechatQr: '',
-    xiaohongshuQr: '',
+    email: '852433522@qq.com',
+    githubLabel: 'github.com/Jamie-She',
+    githubUrl: 'https://github.com/Jamie-She',
+    wechatLabel: 'Jamie.She ✨',
+    wechatMeta: 'WECHAT CONTACT',
+    wechatQr,
+    xiaohongshuLabel: 'JAMIE X STUDIO',
+    xiaohongshuMeta: 'rednote ID 42978977777',
+    xiaohongshuQr,
   },
 }
 

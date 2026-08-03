@@ -6,30 +6,75 @@ type QrCardProps = {
   label: string
   title: string
   src: string
+  account: string
+  meta: string
+  variant: 'wechat' | 'xiaohongshu'
 }
 
-function QrCard({ index, label, title, src }: QrCardProps) {
+function QrCard({ index, label, title, src, account, meta, variant }: QrCardProps) {
   return (
-    <article className="contact-channel contact-channel-qr">
+    <article className={`contact-qr-card contact-qr-card--${variant}`}>
       <div className="contact-channel-topline">
         <span>{label}</span>
         <span>{index}</span>
       </div>
-      <div className="contact-qr-frame" data-empty={!src}>
-        {src ? (
-          <img src={src} alt={`${title}二维码`} />
-        ) : (
-          <div className="contact-qr-placeholder" aria-label={`${title}二维码占位`}>
-            <i aria-hidden="true" />
-            <span>ADD QR</span>
-          </div>
-        )}
+      <div className="contact-qr-identity">
+        <strong>{account}</strong>
+        <small>{meta}</small>
       </div>
-      <div className="contact-channel-copy">
-        <strong>{title}</strong>
-        <small>{src ? '扫码添加' : `替换为${title}二维码`}</small>
+      <a
+        className="contact-qr-action focus-ring"
+        href={src}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`放大查看${title}二维码`}
+      >
+        <div className={`contact-qr-crop contact-qr-crop--${variant}`}>
+          <img src={src} alt={`${title}二维码`} />
+          <span aria-hidden="true" />
+        </div>
+      </a>
+      <div className="contact-qr-caption">
+        <span>扫码{variant === 'wechat' ? '添加好友' : '查看主页'}</span>
+        <span>
+          放大查看
+          <ExternalIcon />
+        </span>
       </div>
     </article>
+  )
+}
+
+type DirectCardProps = {
+  index: string
+  label: string
+  value: string
+  caption: string
+  href: string
+  external?: boolean
+}
+
+function DirectCard({ index, label, value, caption, href, external }: DirectCardProps) {
+  return (
+    <a
+      className="contact-direct-card focus-ring"
+      href={href}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noreferrer' : undefined}
+    >
+      <div className="contact-channel-topline">
+        <span>{label}</span>
+        <span>{index}</span>
+      </div>
+      <div className="contact-direct-copy">
+        <strong>{value}</strong>
+        <small>{caption}</small>
+      </div>
+      <div className="contact-direct-action" aria-hidden="true">
+        <span>OPEN</span>
+        <ExternalIcon />
+      </div>
+    </a>
   )
 }
 
@@ -41,43 +86,48 @@ export function Contact() {
       <header className="contact-heading reveal">
         <span>CONTACT / KEEP IN TOUCH</span>
         <div>
-          <h2>联系方式</h2>
-          <p>邮箱、微信、小红书和GitHub都预留在这里</p>
+          <h2>保持联系</h2>
+          <p>项目、内容实验或新的合作，都可以从这里开始</p>
         </div>
       </header>
 
       <div className="contact-grid reveal reveal-delay">
-        <a className="contact-channel focus-ring" href={`mailto:${contact.email}`}>
-          <div className="contact-channel-topline">
-            <span>EMAIL</span>
-            <span>01</span>
-          </div>
-          <div className="contact-channel-copy">
-            <strong>{contact.email}</strong>
-            <small>点击发送邮件</small>
-          </div>
-          <ExternalIcon />
-        </a>
+        <div className="contact-direct-stack">
+          <DirectCard
+            index="01"
+            label="EMAIL"
+            value={contact.email}
+            caption="写邮件给Jamie"
+            href={`mailto:${contact.email}`}
+          />
+          <DirectCard
+            index="02"
+            label="GITHUB"
+            value={contact.githubLabel}
+            caption="代码、项目与持续更新"
+            href={contact.githubUrl}
+            external
+          />
+        </div>
 
-        <a
-          className="contact-channel focus-ring"
-          href={contact.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="contact-channel-topline">
-            <span>GITHUB</span>
-            <span>02</span>
-          </div>
-          <div className="contact-channel-copy">
-            <strong>{contact.githubLabel}</strong>
-            <small>查看代码与项目</small>
-          </div>
-          <ExternalIcon />
-        </a>
-
-        <QrCard index="03" label="WECHAT" title="微信" src={contact.wechatQr} />
-        <QrCard index="04" label="XIAOHONGSHU" title="小红书" src={contact.xiaohongshuQr} />
+        <QrCard
+          index="03"
+          label="WECHAT"
+          title="微信"
+          src={contact.wechatQr}
+          account={contact.wechatLabel}
+          meta={contact.wechatMeta}
+          variant="wechat"
+        />
+        <QrCard
+          index="04"
+          label="XIAOHONGSHU"
+          title="小红书"
+          src={contact.xiaohongshuQr}
+          account={contact.xiaohongshuLabel}
+          meta={contact.xiaohongshuMeta}
+          variant="xiaohongshu"
+        />
       </div>
 
       <div className="contact-footer reveal">
