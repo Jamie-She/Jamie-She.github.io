@@ -86,8 +86,8 @@ export function Contact() {
       <header className="contact-heading reveal">
         <span>CONTACT / KEEP IN TOUCH</span>
         <div>
-          <h2>保持联系</h2>
-          <p>项目、内容实验或新的合作，都可以从这里开始</p>
+          <h2>一起做点新东西</h2>
+          <p>项目、内容实验或新的合作，欢迎聊聊~</p>
         </div>
       </header>
 
