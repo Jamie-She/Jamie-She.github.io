@@ -2,9 +2,9 @@
 
 ## Visual direction
 
-- System: moving contact sheet / variable aperture
-- Base: carbon black and deep pine
-- Light surfaces: one bounded lightbox for Stage 02 and one paper insert for Thinking
+- System: full-bleed moving aperture / immersive editorial sequence
+- Base: carbon black, deep pine, restrained jade accents
+- Surface rule: no full-width light sections; Stage 02, Thinking, and Contact remain inside one continuous dark visual world
 - Media rule: real project footage and posters only
 - Motion rule: one active preview at a time, no automatic carousel, no scroll hijacking
 
@@ -14,52 +14,49 @@
 - `design/concepts/02-practice-evolution.png`
 - `design/concepts/03-method-thinking-contact.png`
 
-## Implementation captures
+## Latest comparison captures
 
-Desktop at 1440 × 1024:
+Desktop at 1440 × 1024, saved outside the repository:
 
-- `design/qa/desktop-hero.png`
-- `design/qa/desktop-works.png`
-- `design/qa/desktop-stage2.png`
-- `design/qa/desktop-stage3.png`
-- `design/qa/desktop-method.png`
-- `design/qa/desktop-thinking.png`
-- `design/qa/desktop-contact.png`
+- `/tmp/jamie-v4-qa/round2-hero.png`
+- `/tmp/jamie-v4-qa/round2-stage2.png`
+- `/tmp/jamie-v4-qa/round2-method.png`
+- `/tmp/jamie-v4-qa/round2-thinking.png`
+- `/tmp/jamie-v4-qa/round2-contact.png`
+- `/tmp/jamie-v4-qa/round3-hero-switched.png`
 
-Mobile at 390 × 844:
+Mobile at 390 × 844, saved outside the repository:
 
-- `design/qa/mobile-hero.png`
-- `design/qa/mobile-stage2.png`
-- `design/qa/mobile-stage3.png`
-- `design/qa/mobile-method.png`
-- `design/qa/mobile-thinking.png`
-- `design/qa/mobile-contact.png`
+- `/tmp/jamie-v4-qa/round2-mobile-hero.png`
+- `/tmp/jamie-v4-qa/round3-mobile-stage1-media.png`
+- `/tmp/jamie-v4-qa/round3-mobile-stage2-media.png`
+- `/tmp/jamie-v4-qa/final-mobile-stage3.png`
+- `/tmp/jamie-v4-qa/round3-mobile-menu.png`
 
 ## Fidelity review
 
-1. Hierarchy: hero, three-stage practice, method, thinking, and contact follow the approved concept order and relative emphasis
-2. Composition: the hero uses one expanding aperture with three narrow neighboring frames; later project ratios evolve from portrait to widescreen
-3. Typography: compact sans-serif display type replaces the previous mixed editorial/AI-template treatment
-4. Color and imagery: dark continuity is preserved across the page; light areas are contained objects rather than full white sections
-5. Interaction: the three-stage directory appears once and stays static; project media responds to hover/focus/tap without an automatic carousel
+1. Hierarchy: hero, three-stage practice, method, thinking, and contact retain the approved information order and exact visible copy
+2. Composition: the hero now uses full-viewport footage with one expanding aperture and three narrow neighboring frames instead of a card row
+3. Typography: sans-serif display type is optically scaled by section and rebalanced for Chinese line breaks on mobile
+4. Color and imagery: the former light Stage 02 and Thinking blocks were removed; all chapters now share one dark cinematic environment
+5. Interaction: project switching, media preview, sound control, menu, focus states, and NOW-stage case switching remain functional
 
 ## Iterations completed
 
-- Removed the sticky three-stage navigation
-- Replaced both full-width white sections with a bounded warm-gray lightbox and paper insert
-- Merged methods, workflow, and capabilities into one continuous dark chapter
-- Rebuilt contact as open credits with two compact QR papers
-- Corrected desktop heading wraps and mobile title breaks
-- Set BENDSHIFT as the default hero and Stage 03 visual so the most prominent frames keep a clear subject, depth, and stronger source quality
-- Kept VOID DOMINION available as a highlighted playable project and video preview
+- Round 1: replaced the hero card row with an edge-to-edge aperture composition and removed the two abrupt light backgrounds
+- Round 2: tightened typography, section pacing, line contrast, Stage 02 media rhythm, and contact material treatment
+- Round 3: fixed responsive columns that pushed project media off-canvas, corrected mobile title wrapping, and restored the Stage 03 widescreen crop
+- Locked the desktop visible-text inventory before and after the redesign; both inventories are identical at 1,999 characters
 
 ## Interaction and responsive checks
 
 - Hero project switch updates the active aperture and `aria-pressed` state
+- NOW-stage case switch updates the selected media and `aria-pressed` state
 - Global sound toggle updates its pressed state and the shared audio controller keeps only one source active
-- Mobile menu opens with scroll lock, closes after navigation, and lands on the correct hash target
-- Three-stage directory computed position is `static`
+- Mobile menu opens with scroll lock and closes with Escape
+- Three-stage directory remains part of document flow and never becomes sticky
 - No horizontal overflow at 390px
+- Browser console errors/warnings: none
 - `npm run lint` passed
 - `npm run build` passed
 
@@ -67,6 +64,7 @@ Mobile at 390 × 844:
 
 - P0: none
 - P1: none
-- Desktop and mobile hero/Stage 03 passed after promoting BENDSHIFT as the default visual
+- Desktop and mobile comparisons passed after three implementation-review loops
+- Copy lock passed: no visible wording changed
 
 final result: passed
