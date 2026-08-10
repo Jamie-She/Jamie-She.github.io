@@ -4,7 +4,7 @@ export function Framework() {
   return (
     <section className="framework-section" id="framework">
       <header className="method-heading reveal">
-        <span>WHAT I KEEP</span>
+        <span>WHAT STAYS</span>
         <div>
           <h2>比Prompt更值得留下的<br />是判断本身</h2>
           <p>具体写法会随模型变化<br />为什么这样选择，怎样算足够好，更值得被记录</p>

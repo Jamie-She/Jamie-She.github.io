@@ -7,6 +7,7 @@ import { Hero } from './components/Hero'
 import { Projects } from './components/Projects'
 import { Thinking } from './components/Thinking'
 import { Workflow } from './components/Workflow'
+import { disableMediaSound } from './lib/mediaAudio'
 
 function App() {
   useEffect(() => {
@@ -29,15 +30,25 @@ function App() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const pauseWhenHidden = () => {
+      if (document.hidden) disableMediaSound()
+    }
+    document.addEventListener('visibilitychange', pauseWhenHidden)
+    return () => document.removeEventListener('visibilitychange', pauseWhenHidden)
+  }, [])
+
   return (
     <div className="site-shell">
       <Header />
       <main>
         <Hero />
         <Projects />
-        <Framework />
-        <Workflow />
-        <Capabilities />
+        <div className="method-archive">
+          <Framework />
+          <Workflow />
+          <Capabilities />
+        </div>
         <Thinking />
       </main>
       <Contact />

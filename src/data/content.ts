@@ -36,6 +36,9 @@ export type HeroMedia = {
   videoWebm?: string
   orientation: 'landscape' | 'portrait'
   audioProfile?: MediaAudioProfile
+  context: string
+  contextDetail: string
+  processNotes: Array<{ label: string; value: string }>
 }
 
 export type PracticeMedia = {
@@ -119,6 +122,22 @@ export const profile = {
 
 export const heroMedia: HeroMedia[] = [
   {
+    src: citySunglasses,
+    video: citySunglassesVideo,
+    alt: '城市需要一副墨镜AI商业短片',
+    project: '城市需要一副墨镜',
+    label: 'AI COMMERCIAL FILM · 13S',
+    orientation: 'portrait',
+    audioProfile: 'embedded',
+    context: '创意概念 · 镜头生成 · 成片校正',
+    contextDetail: '让人物气质、镜头侵入感、视觉母题和音乐共同落进同一支成片',
+    processNotes: [
+      { label: 'CREATIVE', value: '用城市与墨镜串起整支短片的视觉母题' },
+      { label: 'AI ROLE', value: '镜头生成、版本比较与画面修正' },
+      { label: 'DECISION', value: '人物气质与音乐先于镜头数量' },
+    ],
+  },
+  {
     src: voidDominion,
     video: voidDominionVideo,
     videoWebm: voidDominionWebm,
@@ -127,23 +146,29 @@ export const heroMedia: HeroMedia[] = [
     label: 'GAME · LIVE',
     orientation: 'landscape',
     audioProfile: 'void',
+    context: '长线程开发 · 工具调用 · 评测迭代',
+    contextDetail: '从玩法设定、系统拆解到可联机版本，AI持续参与任务推进',
+    processNotes: [
+      { label: 'GOAL', value: '从可玩的核心循环推进到可联机版本' },
+      { label: 'AI ROLE', value: '系统拆解、工具调用与评测迭代' },
+      { label: 'DECISION', value: '每一轮都回到可玩的构建里验证' },
+    ],
   },
   {
     src: bendShift,
     video: bendShiftVideo,
-    alt: 'BEND SHIFT赛车游戏实机演示',
-    project: '不许控车 BENDSHIFT',
+    alt: 'BENDSHIFT赛车游戏实机演示',
+    project: '不许控车BENDSHIFT',
     label: 'RACING GAME / COUNTERINTUITIVE',
     orientation: 'landscape',
     audioProfile: 'bendshift',
-  },
-  {
-    src: lingguangYejian,
-    video: lingguangYejianVideo,
-    alt: '夜间事务所灵光作品录屏',
-    project: '夜间事务所',
-    label: 'LINGGUANG · INTERACTIVE',
-    orientation: 'portrait',
+    context: '反直觉玩法 · 原型试跑 · 手感校正',
+    contextDetail: '先验证“不控车，只改变道路”是否真的成立，再把反馈写回下一版',
+    processNotes: [
+      { label: 'QUESTION', value: '不控制车，只改变道路，玩法是否成立' },
+      { label: 'AI ROLE', value: '原型推进、系统实现与试跑反馈整理' },
+      { label: 'DECISION', value: '先校正手感，再增加内容复杂度' },
+    ],
   },
   {
     src: neonMarket,
@@ -152,6 +177,13 @@ export const heroMedia: HeroMedia[] = [
     project: '霓虹黑市',
     label: 'AI INTERACTIVE SPACE',
     orientation: 'portrait',
+    context: '选题判断 · Prompt编排 · Human-in-the-loop',
+    contextDetail: '第一次把AI放进完整创作链路，从想法、玩法到发布一起往前推',
+    processNotes: [
+      { label: 'GOAL', value: '从选题到发布完成第一次完整创作' },
+      { label: 'AI ROLE', value: 'Prompt编排与互动玩法原型' },
+      { label: 'DECISION', value: '保留人工选择，不把生成当作答案' },
+    ],
   },
 ]
 
@@ -281,9 +313,9 @@ export const practiceStages: PracticeStage[] = [
           'https://sharky.gg/g/f13f48e1-b398-4955-83e0-8e9d77a1a9d3?mode=app&instance_id=28e2cfd2-9531-4872-9d92-2dc31f804721',
       },
       {
-        title: '不许控车 BENDSHIFT',
+        title: '不许控车BENDSHIFT',
         label: 'RACING GAME / COUNTERINTUITIVE',
-        alt: 'BEND SHIFT赛车游戏实机画面',
+        alt: 'BENDSHIFT赛车游戏实机画面',
         shape: 'wide',
         src: bendShift,
         video: bendShiftVideo,

@@ -1,5 +1,4 @@
 import { notes } from '../data/content'
-import { ArrowIcon } from './ui'
 
 export function Thinking() {
   return (
@@ -23,7 +22,6 @@ export function Thinking() {
                 <p className="note-after">{note.takeaway}</p>
               </div>
             </div>
-            <span className="note-arrow"><ArrowIcon /></span>
           </article>
         ))}
       </div>

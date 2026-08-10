@@ -248,11 +248,9 @@ export function Projects() {
       <header className="practice-intro">
         <span>PRACTICE EVOLUTION / 2026</span>
         <h2 className="reveal">
-          从一次共创，
-          <br />
-          到长程任务交付
+          半年，三次变化
         </h2>
-        <p className="reveal">半年里，和AI一起做事的方式变了三次</p>
+        <p className="reveal">从一件完整作品，到能持续推进复杂任务</p>
       </header>
 
       <nav className="evolution-navigation" id="evolution-navigation" aria-label="三次实践演进">
