@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { navigation, profile } from '../data/content'
 
 const trackedSections = [
+  'top',
   'framework',
   'works',
   'workflow',
@@ -12,7 +13,7 @@ const trackedSections = [
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('works')
+  const [activeSection, setActiveSection] = useState('top')
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const mobileNavigationRef = useRef<HTMLDivElement>(null)
 
@@ -82,9 +83,10 @@ export function Header() {
   const closeMenu = () => setMenuOpen(false)
 
   return (
-    <header className="site-header">
+    <header className="site-header" data-section={activeSection}>
       <a className="brand focus-ring" href="#top" onClick={closeMenu}>
-        {profile.brand}
+        <span>{profile.brand}</span>
+        <i aria-hidden="true" />
       </a>
 
       <nav className="desktop-nav" aria-label="主要导航">
@@ -106,11 +108,10 @@ export function Header() {
             </a>
           )
         })}
+        <a className="nav-link focus-ring" href="#contact" data-active={activeSection === 'contact'}>
+          联系
+        </a>
       </nav>
-
-      <a className="contact-link focus-ring" href="#contact">
-        联系我
-      </a>
 
       <button
         ref={menuButtonRef}
