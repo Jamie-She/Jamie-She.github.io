@@ -1,68 +1,72 @@
 # Design QA
 
-## 对照信息
+## Visual direction
 
-- 视觉目标：`/Users/bytedance/.codex/generated_images/019faec2-ec20-7111-b238-ab5c4afb2a72/exec-a1968426-0fc1-4a39-a4c6-d8a623fade18.png`
-- 最终实现：`/tmp/jamie-cinematic-v3-hero-final.png`
-- 并排对照：`/tmp/jamie-cinematic-v3-comparison-final.jpg`
-- 桌面视口：1440 × 1024，默认静音首帧
-- 移动视口：390 × 844，默认静音首帧
-- 本地预览：`http://127.0.0.1:4173/`
+- System: moving contact sheet / variable aperture
+- Base: carbon black and deep pine
+- Light surfaces: one bounded lightbox for Stage 02 and one paper insert for Thinking
+- Media rule: real project footage and posters only
+- Motion rule: one active preview at a time, no automatic carousel, no scroll hijacking
 
-## 全屏对照结论
+## Source concepts
 
-首屏已经保留目标稿最重要的结构关系：全屏主视觉、左下克制文案、居中玻璃导航和底部三阶段线
+- `design/concepts/01-hero-contact-sheet.png`
+- `design/concepts/02-practice-evolution.png`
+- `design/concepts/03-method-thinking-contact.png`
 
-最终没有把低清游戏录屏直接当作默认画面，而是接入无文字、无HUD的BENDSHIFT电影感key visual，真实录屏只在鼠标移动、点击或开启声音后渐变进入
+## Implementation captures
 
-标题尺寸与位置经过二次收紧，避免压住画面主体；右侧项目说明被移除，声音入口保留为唯一必要控件
+Desktop at 1440 × 1024:
 
-## 聚焦区域检查
+- `design/qa/desktop-hero.png`
+- `design/qa/desktop-works.png`
+- `design/qa/desktop-stage2.png`
+- `design/qa/desktop-stage3.png`
+- `design/qa/desktop-method.png`
+- `design/qa/desktop-thinking.png`
+- `design/qa/desktop-contact.png`
 
-### 首屏媒体
+Mobile at 390 × 844:
 
-- 默认首帧清晰，无内嵌界面和重复文案
-- 真实录屏以约1.1秒淡入，不会突然跳切
-- 开启声音后只播放BENDSHIFT对应配乐，实测同时活动音轨为1
-- 离开媒体区域会停止当前音轨，其他作品接管时不会叠加BGM
+- `design/qa/mobile-hero.png`
+- `design/qa/mobile-stage2.png`
+- `design/qa/mobile-stage3.png`
+- `design/qa/mobile-method.png`
+- `design/qa/mobile-thinking.png`
+- `design/qa/mobile-contact.png`
 
-### 三阶段实践
+## Fidelity review
 
-- 01、02、03可点击直达，双吸顶后内容落位正确
-- 01与02使用真实竖屏录屏，03使用横屏游戏与商业短片
-- VOID DOMINION与不许控车BENDSHIFT的外链入口保留
-- 假广告成真局音轨实测切换为`music:fakead`
+1. Hierarchy: hero, three-stage practice, method, thinking, and contact follow the approved concept order and relative emphasis
+2. Composition: the hero uses one expanding aperture with three narrow neighboring frames; later project ratios evolve from portrait to widescreen
+3. Typography: compact sans-serif display type replaces the previous mixed editorial/AI-template treatment
+4. Color and imagery: dark continuity is preserved across the page; light areas are contained objects rather than full white sections
+5. Interaction: the three-stage directory appears once and stays static; project media responds to hover/focus/tap without an automatic carousel
 
-### 方法、思考与联系
+## Iterations completed
 
-- 方法区去掉明显竖线卡片，改成开放式三列，减少科技模板感
-- 思考区保持横向长条阅读，标题不再发生机械断行
-- 联系区保留Email、GitHub、WeChat与Rednote，并控制二维码尺寸与圆角
+- Removed the sticky three-stage navigation
+- Replaced both full-width white sections with a bounded warm-gray lightbox and paper insert
+- Merged methods, workflow, and capabilities into one continuous dark chapter
+- Rebuilt contact as open credits with two compact QR papers
+- Corrected desktop heading wraps and mobile title breaks
+- Set BENDSHIFT as the default hero and Stage 03 visual so the most prominent frames keep a clear subject, depth, and stronger source quality
+- Kept VOID DOMINION available as a highlighted playable project and video preview
 
-### 响应式与可访问性
+## Interaction and responsive checks
 
-- 390px视口无横向溢出
-- 移动菜单可打开、关闭，并包含焦点回收与背景`inert`
-- 阶段直达后，内容紧贴主导航与阶段导航下方，不再露出上一段残留
-- 交互控件有语义标签、焦点样式和`prefers-reduced-motion`兼容
+- Hero project switch updates the active aperture and `aria-pressed` state
+- Global sound toggle updates its pressed state and the shared audio controller keeps only one source active
+- Mobile menu opens with scroll lock, closes after navigation, and lands on the correct hash target
+- Three-stage directory computed position is `static`
+- No horizontal overflow at 390px
+- `npm run lint` passed
+- `npm run build` passed
 
-## 对照迭代记录
+## Independent visual QA
 
-### Pass 1
-
-- P0：低细节BENDSHIFT录屏占满首屏，HUD与主页标题争抢注意力
-- P1：首屏标题偏大偏低，右侧项目信息增加碎片感
-- P1：方法区重新落回细线网格与模板卡片
-- P1：移动端阶段锚点露出上一段内容
-
-处理：生成并接入无UI电影感key visual；交互后再进入真实视频；缩小并上移标题；移除右侧meta；开放方法区排版；修正滚动间距与双吸顶位置
-
-### Pass 2
-
-- 1440 × 1024目标稿与实现并排复核通过
-- 390 × 844实拍无溢出，首屏和阶段直达通过
-- 导航、阶段tab、声音互斥、独立音轨与移动菜单通过
-- 控制台无error或warning
-- 独立视觉代理复检未发现阻塞交付的P0/P1
+- P0: none
+- P1: none
+- Desktop and mobile hero/Stage 03 passed after promoting BENDSHIFT as the default visual
 
 final result: passed

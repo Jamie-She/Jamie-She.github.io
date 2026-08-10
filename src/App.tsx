@@ -1,12 +1,10 @@
 import { useEffect } from 'react'
-import { Capabilities } from './components/Capabilities'
 import { Contact } from './components/Contact'
 import { Framework } from './components/Framework'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Projects } from './components/Projects'
 import { Thinking } from './components/Thinking'
-import { Workflow } from './components/Workflow'
 import { disableMediaSound } from './lib/mediaAudio'
 
 function App() {
@@ -44,11 +42,7 @@ function App() {
       <main>
         <Hero />
         <Projects />
-        <div className="method-archive">
-          <Framework />
-          <Workflow />
-          <Capabilities />
-        </div>
+        <Framework />
         <Thinking />
       </main>
       <Contact />

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual QA Comparison</title>
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; background: #090c0b; color: #f2f3ef; font-family: Inter, Arial, sans-serif; }
+      main { width: min(1440px, 100%); margin: 0 auto; padding: 36px; }
+      h1 { margin: 0 0 32px; font-size: 20px; font-weight: 500; letter-spacing: .12em; }
+      section { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 48px; }
+      figure { margin: 0; padding: 12px; border: 1px solid #26302b; border-radius: 14px; background: #0e1714; }
+      img { display: block; width: 100%; height: 640px; border-radius: 9px; object-fit: contain; background: #050706; }
+      figcaption { padding: 12px 2px 0; color: #aeb7ae; font-size: 11px; letter-spacing: .11em; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>CONCEPT / IMPLEMENTATION — VISUAL QA</h1>
+      <section>
+        <figure><img src="../concepts/01-hero-contact-sheet.png" alt="Hero concept" /><figcaption>01 · HERO CONCEPT</figcaption></figure>
+        <figure><img src="desktop-hero.png" alt="Hero implementation" /><figcaption>01 · HERO IMPLEMENTATION</figcaption></figure>
+      </section>
+      <section>
+        <figure><img src="../concepts/02-practice-evolution.png" alt="Practice concept" /><figcaption>02 · PRACTICE CONCEPT</figcaption></figure>
+        <figure><img src="desktop-stage2.png" alt="Practice implementation" /><figcaption>02 · PRACTICE IMPLEMENTATION</figcaption></figure>
+      </section>
+      <section>
+        <figure><img src="../concepts/03-method-thinking-contact.png" alt="Method concept" /><figcaption>03 · METHOD / THINKING CONCEPT</figcaption></figure>
+        <figure><img src="desktop-thinking.png" alt="Method implementation" /><figcaption>03 · THINKING IMPLEMENTATION</figcaption></figure>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,79 +1,22 @@
 import { profile } from '../data/content'
 import { ExternalIcon } from './ui'
 
-type QrCardProps = {
-  index: string
+function QrPaper({
+  label,
+  account,
+  src,
+  title,
+}: {
   label: string
-  title: string
-  src: string
   account: string
-  meta: string
-  variant: 'wechat' | 'rednote'
-}
-
-function QrCard({ index, label, title, src, account, meta, variant }: QrCardProps) {
+  src: string
+  title: string
+}) {
   return (
-    <article className={`contact-qr-card contact-qr-card--${variant}`}>
-      <div className="contact-channel-topline">
-        <span>{label}</span>
-        <span>{index}</span>
-      </div>
-      <div className="contact-qr-identity">
-        <strong>{account}</strong>
-        <small>{meta}</small>
-      </div>
-      <a
-        className="contact-qr-action focus-ring"
-        href={src}
-        target="_blank"
-        rel="noreferrer"
-        aria-label={`放大查看${title}二维码`}
-      >
-        <div className={`contact-qr-crop contact-qr-crop--${variant}`}>
-          <img src={src} alt={`${title}二维码`} />
-          <span aria-hidden="true" />
-        </div>
-      </a>
-      <div className="contact-qr-caption">
-        <span>扫码{variant === 'wechat' ? '添加好友' : '查看主页'}</span>
-        <span>
-          放大查看
-          <ExternalIcon />
-        </span>
-      </div>
-    </article>
-  )
-}
-
-type DirectCardProps = {
-  index: string
-  label: string
-  value: string
-  caption: string
-  href: string
-  external?: boolean
-}
-
-function DirectCard({ index, label, value, caption, href, external }: DirectCardProps) {
-  return (
-    <a
-      className="contact-direct-card focus-ring"
-      href={href}
-      target={external ? '_blank' : undefined}
-      rel={external ? 'noreferrer' : undefined}
-    >
-      <div className="contact-channel-topline">
-        <span>{label}</span>
-        <span>{index}</span>
-      </div>
-      <div className="contact-direct-copy">
-        <strong>{value}</strong>
-        <small>{caption}</small>
-      </div>
-      <div className="contact-direct-action" aria-hidden="true">
-        <span>OPEN</span>
-        <ExternalIcon />
-      </div>
+    <a className="qr-paper focus-ring" href={src} target="_blank" rel="noreferrer">
+      <span>{label}</span>
+      <img src={src} alt={`${title}二维码`} />
+      <small>{account}</small>
     </a>
   )
 }
@@ -83,56 +26,51 @@ export function Contact() {
 
   return (
     <footer className="contact-section" id="contact">
-      <header className="contact-heading reveal">
-        <span>CONTACT / KEEP IN TOUCH</span>
-        <div>
+      <div className="contact-inner">
+        <header className="contact-heading reveal">
           <h2>一起做点新东西</h2>
           <p>项目、内容实验或新的合作，欢迎聊聊~</p>
+        </header>
+
+        <div className="contact-content reveal reveal-delay">
+          <div className="contact-links">
+            <a className="contact-link focus-ring" href={`mailto:${contact.email}`}>
+              <span>EMAIL</span>
+              <strong>{contact.email}</strong>
+              <ExternalIcon />
+            </a>
+            <a
+              className="contact-link focus-ring"
+              href={contact.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>GITHUB</span>
+              <strong>{contact.githubLabel}</strong>
+              <ExternalIcon />
+            </a>
+          </div>
+
+          <div className="contact-qrs">
+            <QrPaper
+              label="WECHAT"
+              account={contact.wechatLabel}
+              src={contact.wechatQr}
+              title="微信"
+            />
+            <QrPaper
+              label="REDNOTE"
+              account={contact.rednoteLabel}
+              src={contact.rednoteQr}
+              title="REDNOTE"
+            />
+          </div>
         </div>
-      </header>
 
-      <div className="contact-grid reveal reveal-delay">
-        <div className="contact-direct-stack">
-          <DirectCard
-            index="01"
-            label="EMAIL"
-            value={contact.email}
-            caption="写邮件给Jamie"
-            href={`mailto:${contact.email}`}
-          />
-          <DirectCard
-            index="02"
-            label="GITHUB"
-            value={contact.githubLabel}
-            caption="代码、项目与持续更新"
-            href={contact.githubUrl}
-            external
-          />
+        <div className="contact-footer reveal">
+          <span>JAMIE / 2026</span>
+          <a className="focus-ring" href="#top">回到顶部</a>
         </div>
-
-        <QrCard
-          index="03"
-          label="WECHAT"
-          title="微信"
-          src={contact.wechatQr}
-          account={contact.wechatLabel}
-          meta={contact.wechatMeta}
-          variant="wechat"
-        />
-        <QrCard
-          index="04"
-          label="REDNOTE"
-          title="REDNOTE"
-          src={contact.rednoteQr}
-          account={contact.rednoteLabel}
-          meta={contact.rednoteMeta}
-          variant="rednote"
-        />
-      </div>
-
-      <div className="contact-footer reveal">
-        <span>© 2026 Jamie · 佘嘉敏</span>
-        <a className="focus-ring" href="#top">回到顶部 ↑</a>
       </div>
     </footer>
   )
