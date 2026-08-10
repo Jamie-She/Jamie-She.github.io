@@ -18,20 +18,18 @@
 
 Desktop at 1440 × 1024, saved outside the repository:
 
-- `/tmp/jamie-v4-qa/round2-hero.png`
-- `/tmp/jamie-v4-qa/round2-stage2.png`
-- `/tmp/jamie-v4-qa/round2-method.png`
-- `/tmp/jamie-v4-qa/round2-thinking.png`
-- `/tmp/jamie-v4-qa/round2-contact.png`
-- `/tmp/jamie-v4-qa/round3-hero-switched.png`
+- `/tmp/jamie-v5-qa/03-after-desktop.png`
+- `/tmp/jamie-v5-qa/05-after-method-settled.png`
+- `/tmp/jamie-v5-qa/08-after-hero-switch.png`
+- `/tmp/jamie-v5-qa/10-after-contact-settled.png`
+- `/tmp/jamie-v5-qa/11-after-stage-hover.png`
+- `/tmp/jamie-v5-qa/12-final-hero.png`
+- `/tmp/jamie-v5-qa/13-final-thinking.png`
 
 Mobile at 390 × 844, saved outside the repository:
 
-- `/tmp/jamie-v4-qa/round2-mobile-hero.png`
-- `/tmp/jamie-v4-qa/round3-mobile-stage1-media.png`
-- `/tmp/jamie-v4-qa/round3-mobile-stage2-media.png`
-- `/tmp/jamie-v4-qa/final-mobile-stage3.png`
-- `/tmp/jamie-v4-qa/round3-mobile-menu.png`
+- `/tmp/jamie-v5-qa/06-after-mobile.png`
+- `/tmp/jamie-v5-qa/14-final-mobile.png`
 
 ## Fidelity review
 
@@ -40,12 +38,14 @@ Mobile at 390 × 844, saved outside the repository:
 3. Typography: sans-serif display type is optically scaled by section and rebalanced for Chinese line breaks on mobile
 4. Color and imagery: the former light Stage 02 and Thinking blocks were removed; all chapters now share one dark cinematic environment
 5. Interaction: project switching, media preview, sound control, menu, focus states, and NOW-stage case switching remain functional
+6. Motion: pointer parallax, cinematic push-in, aperture scan, media depth, scroll progress, and view-based headline drift all use the same restrained timing language
 
 ## Iterations completed
 
 - Round 1: replaced the hero card row with an edge-to-edge aperture composition and removed the two abrupt light backgrounds
 - Round 2: tightened typography, section pacing, line contrast, Stage 02 media rhythm, and contact material treatment
 - Round 3: fixed responsive columns that pushed project media off-canvas, corrected mobile title wrapping, and restored the Stage 03 widescreen crop
+- Round 4: opened display-title line height across hero, method, thinking, and contact; added a consistent motion system without changing visible copy
 - Locked the desktop visible-text inventory before and after the redesign; both inventories are identical at 1,999 characters
 
 ## Interaction and responsive checks
@@ -56,6 +56,7 @@ Mobile at 390 × 844, saved outside the repository:
 - Mobile menu opens with scroll lock and closes with Escape
 - Three-stage directory remains part of document flow and never becomes sticky
 - No horizontal overflow at 390px
+- Reduced-motion preference disables parallax and animated title drift
 - Browser console errors/warnings: none
 - `npm run lint` passed
 - `npm run build` passed

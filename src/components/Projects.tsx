@@ -48,12 +48,31 @@ function StageMedia({ media, active = true }: { media: PracticeMedia; active?: b
     }
   }
 
+  const updatePointerDepth = (event: PointerEvent<HTMLElement>) => {
+    if (event.pointerType !== 'mouse') return
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5
+    event.currentTarget.style.setProperty('--media-rx', `${(-y * 2.4).toFixed(2)}deg`)
+    event.currentTarget.style.setProperty('--media-ry', `${(x * 2.4).toFixed(2)}deg`)
+    event.currentTarget.style.setProperty('--media-x', `${((x + 0.5) * 100).toFixed(1)}%`)
+    event.currentTarget.style.setProperty('--media-y', `${((y + 0.5) * 100).toFixed(1)}%`)
+  }
+
+  const resetPointerDepth = (element: HTMLElement) => {
+    element.style.setProperty('--media-rx', '0deg')
+    element.style.setProperty('--media-ry', '0deg')
+    element.style.setProperty('--media-x', '50%')
+    element.style.setProperty('--media-y', '50%')
+  }
+
   return (
     <figure
       className="stage-media"
       data-shape={media.shape}
       data-playing={playing}
       tabIndex={active ? 0 : -1}
+      onPointerMove={updatePointerDepth}
       onPointerEnter={(event: PointerEvent<HTMLElement>) => {
         if (event.pointerType === 'mouse') startPreview()
       }}
@@ -61,7 +80,10 @@ function StageMedia({ media, active = true }: { media: PracticeMedia; active?: b
         if (event.pointerType !== 'mouse') enablePreview()
       }}
       onPointerLeave={(event: PointerEvent<HTMLElement>) => {
-        if (event.pointerType === 'mouse') stopPreview()
+        if (event.pointerType === 'mouse') {
+          resetPointerDepth(event.currentTarget)
+          stopPreview()
+        }
       }}
       onFocus={startPreview as unknown as (event: FocusEvent<HTMLElement>) => void}
       onBlur={stopPreview as unknown as (event: FocusEvent<HTMLElement>) => void}

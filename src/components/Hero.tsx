@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { type PointerEvent, useEffect, useMemo, useRef, useState } from 'react'
 import { heroMedia, profile } from '../data/content'
 import {
   activateMediaSound,
@@ -16,6 +16,7 @@ export function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [soundEnabled, setSoundEnabled] = useState(isMediaSoundEnabled)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => subscribeMediaSound(setSoundEnabled), [])
 
@@ -35,11 +36,34 @@ export function Hero() {
     void enableMediaSound(videoRef.current, projects[activeIndex].audioProfile)
   }
 
+  const handlePointerMove = (event: PointerEvent<HTMLElement>) => {
+    if (event.pointerType !== 'mouse') return
+    const section = sectionRef.current
+    if (!section) return
+    const bounds = section.getBoundingClientRect()
+    const x = (event.clientX - bounds.left) / bounds.width
+    const y = (event.clientY - bounds.top) / bounds.height
+    section.style.setProperty('--pointer-x', x.toFixed(4))
+    section.style.setProperty('--pointer-y', y.toFixed(4))
+    section.style.setProperty('--hero-shift-x', `${((x - 0.5) * -14).toFixed(2)}px`)
+    section.style.setProperty('--hero-shift-y', `${((y - 0.5) * -10).toFixed(2)}px`)
+  }
+
+  const handlePointerLeave = () => {
+    sectionRef.current?.style.setProperty('--pointer-x', '0.5')
+    sectionRef.current?.style.setProperty('--pointer-y', '0.5')
+    sectionRef.current?.style.setProperty('--hero-shift-x', '0px')
+    sectionRef.current?.style.setProperty('--hero-shift-y', '0px')
+    deactivateMediaSound(videoRef.current)
+  }
+
   return (
     <section
+      ref={sectionRef}
       className="hero-section"
       id="top"
-      onPointerLeave={() => deactivateMediaSound(videoRef.current)}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
     >
       <div className="hero-grain" aria-hidden="true" />
 
