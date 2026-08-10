@@ -68,4 +68,17 @@ Mobile at 390 × 844, saved outside the repository:
 - Desktop and mobile comparisons passed after three implementation-review loops
 - Copy lock passed: no visible wording changed
 
+## V6 detail verification
+
+- Stage 01 now uses the source media ratio (`23 / 50`) instead of forcing `9 / 16`, so the app header and bottom interaction area remain visible
+- Stage 03 title has a protected text column at desktop widths and moves to a single-column layout below 1100px
+- Stage 03 case navigation accepts 4 items and keeps long Chinese titles readable on desktop and mobile
+- Workflow rows use stable index, title, description, and terminology columns
+- Contact shows one centered WeChat card; the Rednote QR asset and profile data were removed
+- `洗衣机里吹来一场海风` loads as an 18-second portrait film with its embedded stereo audio
+- Independent visual QA found no remaining P0/P1 issue after the Stage 01 ratio correction
+- No horizontal overflow at 1440px or 390px
+- `npm run lint` passed
+- `npm run build` passed
+
 final result: passed

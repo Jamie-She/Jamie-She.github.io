@@ -1,8 +1,8 @@
 import citySunglasses from '../assets/practice/city-sunglasses-v26.jpg'
 import wechatQr from '../assets/contact/wechat-qr.png'
-import rednoteQr from '../assets/contact/rednote-qr.png'
 import bendShift from '../assets/practice/bend-shift.jpg'
 import fakeAd from '../assets/practice/fake-ad.jpg'
+import laundrySeaBreeze from '../assets/practice/laundry-sea-breeze.jpg'
 import lingguangMaomao from '../assets/practice/lingguang-maomao.jpg'
 import lingguangShimian from '../assets/practice/lingguang-shimian.jpg'
 import lingguangYejian from '../assets/practice/lingguang-yejian.jpg'
@@ -17,6 +17,7 @@ import lingguangShimianVideo from '../assets/video/lingguang-shimian.mp4'
 import lingguangMaomaoVideo from '../assets/video/lingguang-maomao.mp4'
 import citySunglassesVideo from '../assets/video/city-sunglasses-v26.mp4'
 import bendShiftVideo from '../assets/video/bend-shift.mp4'
+import laundrySeaBreezeVideo from '../assets/video/laundry-sea-breeze.mp4'
 import type { MediaAudioProfile } from '../lib/mediaAudio'
 
 export type FrameworkItem = {
@@ -105,7 +106,6 @@ export const profile = {
   email: '852433522@qq.com',
   links: [
     { label: 'GitHub', href: 'https://github.com/Jamie-She' },
-    { label: 'REDNOTE', href: '#contact' },
   ],
   contact: {
     email: '852433522@qq.com',
@@ -114,9 +114,6 @@ export const profile = {
     wechatLabel: 'Jamie.She ✨',
     wechatMeta: 'WECHAT CONTACT',
     wechatQr,
-    rednoteLabel: 'JAMIE X STUDIO',
-    rednoteMeta: 'rednote ID 42978977777',
-    rednoteQr,
   },
 }
 
@@ -295,7 +292,7 @@ export const practiceStages: PracticeStage[] = [
     practice: '复杂游戏与AI商业短片，从概念推进至可发布结果',
     aiRole: 'Agentic Workflow · Tool Use · Eval-driven',
     output: 'VOID DOMINION · 不许控车BENDSHIFT · 商业短片',
-    proof: '两款游戏已可玩 · 一支AI商业短片完成',
+    proof: '两款游戏已可玩 · 两支AI商业短片完成',
     current: true,
     media: [
       {
@@ -334,6 +331,17 @@ export const practiceStages: PracticeStage[] = [
         video: citySunglassesVideo,
         audioProfile: 'embedded',
         detail: '从创意概念推进到完整成片',
+      },
+      {
+        title: '洗衣机里吹来一场海风',
+        label: 'AI COMMERCIAL FILM · 18S',
+        alt: '洗衣机里吹来一场海风AI时尚短片',
+        shape: 'portrait',
+        position: 'center',
+        src: laundrySeaBreeze,
+        video: laundrySeaBreezeVideo,
+        audioProfile: 'embedded',
+        detail: '从日常空间切进一场夏日海风',
       },
     ],
   },

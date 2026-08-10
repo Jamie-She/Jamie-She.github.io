@@ -58,12 +58,6 @@ export function Contact() {
               src={contact.wechatQr}
               title="微信"
             />
-            <QrPaper
-              label="REDNOTE"
-              account={contact.rednoteLabel}
-              src={contact.rednoteQr}
-              title="REDNOTE"
-            />
           </div>
         </div>
 
