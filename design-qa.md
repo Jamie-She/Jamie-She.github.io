@@ -82,3 +82,16 @@ Mobile at 390 × 844, saved outside the repository:
 - `npm run build` passed
 
 final result: passed
+
+## V9 targeted correction
+
+- Source visual truth: `/var/folders/gz/60fps4x97mn3m00yfqlqrkv40000gn/T/codex-clipboard-72dc2907-f7c5-4eb3-8e6c-e7a5943cdd23.png` at 648 × 712 px
+- Implementation captures: `/tmp/jamie-contact-v9/desktop-after.png` at 1440 × 1000 px and `/tmp/jamie-contact-v9/mobile-after.png` at 390 × 844 px, device scale factor 1
+- State: contact section settled after reveal animation
+- Full-view comparison: header lockup now reads `JAMIE / AI`; contact spacing, typography, colors, and card proportions are unchanged
+- Focused comparison: `/tmp/jamie-contact-v9/compare.png` places the marked source and corrected Douyin card together; the QR circle, white backing circle, and outer mask are now concentric
+- Iteration history: the original 780 × 780 asset retained uneven dark padding around an off-center white circle; the asset was recropped to its 720 × 720 circular content bounds and checked again at desktop and mobile widths
+- Typography, layout rhythm, color tokens, copy, and supplied QR image quality remain consistent with the existing contact design
+- No remaining P0, P1, or P2 findings
+
+final result: passed

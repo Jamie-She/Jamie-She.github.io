@@ -97,7 +97,7 @@ export type Note = {
 }
 
 export const profile = {
-  brand: 'AI NATIVE',
+  brand: 'AI',
   role: 'AI Product · Content · Operation',
   heroTitle: '我是Jamie，和AI一起做内容与互动体验',
   heroTitleLines: ['我是Jamie', '和AI一起做内容与互动体验'],

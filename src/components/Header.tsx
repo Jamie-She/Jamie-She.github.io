@@ -79,7 +79,7 @@ export function Header() {
   return (
     <header className="site-header" data-scrolled={scrolled} data-section={activeSection}>
       <a className="brand focus-ring" href="#top" onClick={closeMenu}>
-        JAMIE <span>/</span> AI NATIVE
+        JAMIE <span>/</span> AI
       </a>
 
       <nav className="desktop-nav" aria-label="主要导航">
