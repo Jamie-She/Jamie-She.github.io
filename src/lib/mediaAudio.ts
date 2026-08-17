@@ -90,7 +90,6 @@ export async function activateMediaSound(
   if (!video || !mediaSoundEnabled) return
 
   muteOtherVideos(video)
-  const token = ++activationToken
 
   if (activeVideo === video) {
     if (profile === 'embedded' && !video.muted) return
@@ -99,6 +98,8 @@ export async function activateMediaSound(
       if (activeTrack === track && !track.paused) return
     }
   }
+
+  const token = ++activationToken
 
   if (activeVideo && activeVideo !== video) {
     activeVideo.muted = true
