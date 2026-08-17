@@ -1,7 +1,9 @@
 import citySunglasses from '../assets/practice/city-sunglasses-v26.jpg'
+import douyinQr from '../assets/contact/douyin-qr.png'
 import wechatQr from '../assets/contact/wechat-qr.png'
 import bendShift from '../assets/practice/bend-shift.jpg'
 import fakeAd from '../assets/practice/fake-ad.jpg'
+import grassNoHeels from '../assets/practice/grass-no-heels.jpg'
 import laundrySeaBreeze from '../assets/practice/laundry-sea-breeze.jpg'
 import lingguangMaomao from '../assets/practice/lingguang-maomao.jpg'
 import lingguangShimian from '../assets/practice/lingguang-shimian.jpg'
@@ -17,6 +19,7 @@ import lingguangShimianVideo from '../assets/video/lingguang-shimian.mp4'
 import lingguangMaomaoVideo from '../assets/video/lingguang-maomao.mp4'
 import citySunglassesVideo from '../assets/video/city-sunglasses-v26.mp4'
 import bendShiftVideo from '../assets/video/bend-shift.mp4'
+import grassNoHeelsVideo from '../assets/video/grass-no-heels.mp4'
 import laundrySeaBreezeVideo from '../assets/video/laundry-sea-breeze.mp4'
 import type { MediaAudioProfile } from '../lib/mediaAudio'
 
@@ -60,7 +63,6 @@ export type PracticeMedia = {
 
 export type PracticeStage = {
   phase: string
-  period: string
   title: string
   english: string
   claim: string
@@ -114,6 +116,9 @@ export const profile = {
     wechatLabel: 'Jamie.She ✨',
     wechatMeta: 'WECHAT CONTACT',
     wechatQr,
+    douyinLabel: '@小虾虾:D',
+    douyinMeta: 'DOUYIN',
+    douyinQr,
   },
 }
 
@@ -121,9 +126,9 @@ export const heroMedia: HeroMedia[] = [
   {
     src: citySunglasses,
     video: citySunglassesVideo,
-    alt: '城市需要一副墨镜AI商业短片',
+    alt: '城市需要一副墨镜AIGC创意短片',
     project: '城市需要一副墨镜',
-    label: 'AI COMMERCIAL FILM · 13S',
+    label: 'AIGC CREATIVE FILM · 13S',
     orientation: 'portrait',
     audioProfile: 'embedded',
     context: '创意概念 · 镜头生成 · 成片校正',
@@ -217,7 +222,6 @@ export const framework: FrameworkItem[] = [
 export const practiceStages: PracticeStage[] = [
   {
     phase: '01',
-    period: '2026.02—04',
     title: '单点创作',
     english: 'PROMPT-LED EXPLORATION',
     claim: '从一件完整作品开始',
@@ -247,7 +251,6 @@ export const practiceStages: PracticeStage[] = [
   },
   {
     phase: '02',
-    period: '2026.04—06',
     title: '工作流复用',
     english: 'SKILL & CONTEXT',
     claim: '把单次实践沉淀为可复用的工作方式',
@@ -285,14 +288,13 @@ export const practiceStages: PracticeStage[] = [
   },
   {
     phase: '03',
-    period: '2026.06—NOW',
     title: '长程任务交付',
     english: 'AGENTIC DELIVERY',
     claim: '从单点协作走向长线程任务交付',
-    practice: '复杂游戏与AI商业短片，从概念推进至可发布结果',
+    practice: '复杂游戏与AIGC创意短片，从概念推进至可发布结果',
     aiRole: 'Agentic Workflow · Tool Use · Eval-driven',
-    output: 'VOID DOMINION · 不许控车BENDSHIFT · 商业短片',
-    proof: '两款游戏已可玩 · 两支AI商业短片完成',
+    output: 'VOID DOMINION · 不许控车BENDSHIFT · AIGC创意短片',
+    proof: '两款游戏已可玩 · 多支AIGC创意短片',
     current: true,
     media: [
       {
@@ -323,8 +325,8 @@ export const practiceStages: PracticeStage[] = [
       },
       {
         title: '城市需要一副墨镜',
-        label: 'AI COMMERCIAL FILM · 13S',
-        alt: '城市需要一副墨镜AI商业概念片',
+        label: 'AIGC CREATIVE FILM · 13S',
+        alt: '城市需要一副墨镜AIGC创意短片',
         shape: 'portrait',
         position: 'center',
         src: citySunglasses,
@@ -334,14 +336,25 @@ export const practiceStages: PracticeStage[] = [
       },
       {
         title: '洗衣机里吹来一场海风',
-        label: 'AI COMMERCIAL FILM · 18S',
-        alt: '洗衣机里吹来一场海风AI时尚短片',
+        label: 'AIGC CREATIVE FILM · 18S',
+        alt: '洗衣机里吹来一场海风AIGC创意短片',
         shape: 'portrait',
         position: 'center',
         src: laundrySeaBreeze,
         video: laundrySeaBreezeVideo,
         audioProfile: 'embedded',
         detail: '从日常空间切进一场夏日海风',
+      },
+      {
+        title: '草地不准她穿高跟鞋',
+        label: 'AIGC CREATIVE FILM · 18S',
+        alt: '草地不准她穿高跟鞋AIGC创意短片',
+        shape: 'portrait',
+        position: 'center',
+        src: grassNoHeels,
+        video: grassNoHeelsVideo,
+        audioProfile: 'embedded',
+        detail: '在草地、公路与高跟鞋之间制造一场出逃',
       },
     ],
   },

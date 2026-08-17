@@ -6,14 +6,16 @@ function QrPaper({
   account,
   src,
   title,
+  variant = 'square',
 }: {
   label: string
   account: string
   src: string
   title: string
+  variant?: 'square' | 'round'
 }) {
   return (
-    <a className="qr-paper focus-ring" href={src} target="_blank" rel="noreferrer">
+    <a className="qr-paper focus-ring" data-qr-shape={variant} href={src} target="_blank" rel="noreferrer">
       <span>{label}</span>
       <img src={src} alt={`${title}二维码`} />
       <small>{account}</small>
@@ -57,6 +59,13 @@ export function Contact() {
               account={contact.wechatLabel}
               src={contact.wechatQr}
               title="微信"
+            />
+            <QrPaper
+              label={contact.douyinMeta}
+              account={contact.douyinLabel}
+              src={contact.douyinQr}
+              title="抖音"
+              variant="round"
             />
           </div>
         </div>

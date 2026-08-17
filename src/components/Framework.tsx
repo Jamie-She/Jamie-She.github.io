@@ -29,7 +29,7 @@ export function Framework() {
       <div className="method-backdrop" aria-hidden="true" />
       <div className="method-content">
         <header className="method-intro reveal">
-          <h2>Prompt会过时<br />判断事情的手感不会</h2>
+          <h2><span>Prompt会过时</span><span>判断事情的手感不会</span></h2>
           <p>方法是可以迁移的判断力<br />让创作在不同模型与语境中仍然保持方向</p>
         </header>
 

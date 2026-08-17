@@ -120,7 +120,6 @@ function ChapterCopy({ stage }: { stage: PracticeStage }) {
     <header className="chapter-copy reveal">
       <div className="chapter-index-line">
         <span>{stage.phase}</span>
-        <span>{stage.period}</span>
         {stage.current ? <em>NOW</em> : null}
       </div>
       <h3>{stage.title}</h3>
@@ -135,38 +134,75 @@ function ChapterCopy({ stage }: { stage: PracticeStage }) {
 }
 
 function CurrentStageShowcase({ stage }: { stage: PracticeStage }) {
-  const [activeCase, setActiveCase] = useState(1)
-  const activeMedia = stage.media[activeCase]
+  const games = stage.media.slice(0, 2)
+  const films = stage.media.slice(2)
+  const [activeGroup, setActiveGroup] = useState<'void' | 'bendshift' | 'films'>('void')
+  const [activeFilm, setActiveFilm] = useState(0)
+  const isFilmCollection = activeGroup === 'films'
+  const activeMedia = isFilmCollection
+    ? films[activeFilm] ?? films[0]
+    : games[activeGroup === 'void' ? 0 : 1]
+  const mainTabs = [
+    { id: 'void' as const, title: games[0].title, label: games[0].label },
+    { id: 'bendshift' as const, title: games[1].title, label: games[1].label },
+    { id: 'films' as const, title: 'AIGC创意短片', label: `${films.length} FILMS` },
+  ]
 
   return (
     <div className="current-stage-showcase reveal reveal-delay">
-      <div className="current-stage-screen">
-        <StageMedia key={activeMedia.title} media={activeMedia} />
-        {activeMedia.href ? (
-          <a
-            className="current-stage-link focus-ring"
-            href={activeMedia.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {activeMedia.cta ?? '打开作品'} <ExternalIcon />
-          </a>
+      <div className="current-stage-screen" data-mode={isFilmCollection ? 'films' : 'game'}>
+        <div className="current-stage-media-frame">
+          <StageMedia key={activeMedia.title} media={activeMedia} />
+          {activeMedia.href ? (
+            <a
+              className="current-stage-link focus-ring"
+              href={activeMedia.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {activeMedia.cta ?? '打开作品'} <ExternalIcon />
+            </a>
+          ) : null}
+        </div>
+
+        {isFilmCollection ? (
+          <div className="current-film-rail" aria-label="AIGC创意短片切换">
+            <div className="current-film-rail-heading">
+              <span>AIGC CREATIVE FILMS</span>
+              <strong>0{activeFilm + 1} / 0{films.length}</strong>
+            </div>
+            {films.map((film, index) => (
+              <button
+                type="button"
+                className="current-film-tab focus-ring"
+                data-active={index === activeFilm}
+                aria-pressed={index === activeFilm}
+                onClick={() => setActiveFilm(index)}
+                key={film.title}
+              >
+                <img src={film.src} alt="" loading="lazy" />
+                <span>0{index + 1}</span>
+                <strong>{film.title}</strong>
+                <small>{film.label}</small>
+              </button>
+            ))}
+          </div>
         ) : null}
       </div>
 
       <div className="current-stage-list" aria-label="NOW阶段案例切换">
-        {stage.media.map((media, index) => (
+        {mainTabs.map((tab, index) => (
           <button
             type="button"
             className="current-stage-item focus-ring"
-            data-active={index === activeCase}
-            aria-pressed={index === activeCase}
-            onClick={() => setActiveCase(index)}
-            key={media.title}
+            data-active={tab.id === activeGroup}
+            aria-pressed={tab.id === activeGroup}
+            onClick={() => setActiveGroup(tab.id)}
+            key={tab.id}
           >
             <span>0{index + 1}</span>
-            <strong>{media.title}</strong>
-            <small>{media.label}</small>
+            <strong>{tab.title}</strong>
+            <small>{tab.label}</small>
             <i aria-hidden="true" />
           </button>
         ))}
@@ -188,7 +224,6 @@ export function Projects() {
             <a className="chapter-directory-item focus-ring" href={`#practice-stage-${stage.phase}`} key={stage.phase}>
               <span>{stage.phase}</span>
               <strong>{stage.title}</strong>
-              <small>{stage.period}</small>
               {stage.current ? <em>NOW</em> : null}
             </a>
           ))}
