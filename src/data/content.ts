@@ -172,21 +172,6 @@ export const heroMedia: HeroMedia[] = [
       { label: 'DECISION', value: '先校正手感，再增加内容复杂度' },
     ],
   },
-  {
-    src: neonMarket,
-    video: neonMarketVideo,
-    alt: '霓虹黑市互动空间实机演示',
-    project: '霓虹黑市',
-    label: 'AI INTERACTIVE SPACE',
-    orientation: 'portrait',
-    context: '选题判断 · Prompt编排 · Human-in-the-loop',
-    contextDetail: '第一次把AI放进完整创作链路，从想法、玩法到发布一起往前推',
-    processNotes: [
-      { label: 'GOAL', value: '从选题到发布完成第一次完整创作' },
-      { label: 'AI ROLE', value: 'Prompt编排与互动玩法原型' },
-      { label: 'DECISION', value: '保留人工选择，不把生成当作答案' },
-    ],
-  },
 ]
 
 export const navigation = [

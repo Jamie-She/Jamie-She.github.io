@@ -9,7 +9,7 @@ import {
   subscribeMediaSound,
 } from '../lib/mediaAudio'
 
-const heroOrder = [2, 1, 0, 3]
+const heroOrder = [2, 1, 0]
 
 export function Hero() {
   const projects = useMemo(() => heroOrder.map((index) => heroMedia[index]), [])
