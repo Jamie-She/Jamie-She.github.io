@@ -3444,3 +3444,35 @@ body {
     justify-content: flex-start;
   }
 }
+
+/* V7 micro-polish — clearer case states and a tighter method hand-off */
+.current-stage-showcase.reveal {
+  clip-path: none;
+}
+
+.current-stage-item[data-active="true"] {
+  background: linear-gradient(135deg, rgb(117 229 163 / 0.055), transparent 68%);
+}
+
+.current-stage-item small {
+  display: -webkit-box;
+  min-height: 2.55em;
+  overflow: hidden;
+  line-height: 1.3;
+  text-overflow: clip;
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.method-thread {
+  margin-top: 14vh;
+  padding-top: 9vh;
+}
+
+@media (max-width: 720px) {
+  .method-thread {
+    margin-top: 7rem;
+    padding-top: 4.5rem;
+  }
+}
